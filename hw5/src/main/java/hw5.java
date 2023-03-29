@@ -7,12 +7,12 @@ public class hw5 {
         System.setProperty("webdriver.chrome.driver", "C:\\ChromeDriver\\chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
         driver.get("https://onliner.by");
-        driver.findElement(By.xpath("//span[text()='Пылесосы']")).click();
+        driver.findElement(By.xpath("//span[text()='Фены']")).click();
         ((JavascriptExecutor)driver).executeScript("window.scrollBy(0, 250)");
-        driver.findElement(By.xpath("//input[@value='xiaomi']/following-sibling::span")).click();
+        driver.findElement(By.xpath("//input[@value='dyson']/following-sibling::span")).click();
 
-        if (driver.findElement(By.xpath("//input[@value='xiaomi']")).isSelected()) {
-            System.out.println("Still selected");
+        if (driver.findElement(By.xpath("//input[@value='dyson']")).isSelected()) {
+            System.out.println("Still selected Dyson");
         }
 
         driver.quit();
