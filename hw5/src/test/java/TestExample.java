@@ -1,4 +1,5 @@
 import org.asynchttpclient.util.Assertions;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,14 +14,16 @@ public class TestExample {
     public void test() {
         chromeOptions.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
         System.setProperty("webdriver.chrome.driver", "C:\\ChromeDriver\\chromedriver.exe");
+        chromeOptions.addArguments("--remote-allow-origins=*","игнорировать-сертификат-ошибки");
         WebDriver driver = new ChromeDriver(chromeOptions);
         driver.get("https://onliner.by");
         driver.findElement(By.xpath("//span[text()='Пылесосы']")).click();
         ((JavascriptExecutor)driver).executeScript("window.scrollBy(0, 250)");
         driver.findElement(By.xpath("//input[@value='xiaomi']/following-sibling::span")).click();
-        Assertions.assertTrue(driver.findElement(By.xpath("//input[@value='xiaomi']/following-sibling::span")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.xpath("//input[@value='xiaomi']/following-sibling::span")).isDisplayed());
         driver.quit();
 
     }
 }
+
 
